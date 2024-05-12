@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:arms/widgets/NavBar.dart'; 
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key});
@@ -9,9 +10,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   TextEditingController _searchController = TextEditingController();
-  int _selectedIndex = 0; // to track the selected index of the bottom navigation bar
+  int _selectedIndex = 0;
 
-  // Function to handle bottom navigation bar item selection
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -105,36 +105,9 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.notifications),
-            label: 'Notifications',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.book),
-            label: 'Favorites',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.bookmark),
-            label: 'Cart',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
-          ),
-        ],
-        iconSize: 30,
-        currentIndex: _selectedIndex,
-        showSelectedLabels: false,
-        selectedItemColor: Colors.blue,
-        unselectedItemColor: Color.fromRGBO(127, 133, 149, 1), // Set unselected item color to black
-        elevation: 0.0, // Remove the bottom border line
-        onTap: _onItemTapped,
+      bottomNavigationBar: NavBar(
+        selectedIndex: _selectedIndex,
+        onItemTapped: _onItemTapped,
       ),
     );
   }
