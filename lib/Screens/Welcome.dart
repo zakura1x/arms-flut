@@ -14,6 +14,7 @@ class _WelcomeState extends State<Welcome> {
     return Scaffold(
       body: Center(
         child: Container(
+          color: Color.fromRGBO(208, 217, 211, 1),
           alignment: Alignment.center,
           child: Column(
             children: [
@@ -21,7 +22,7 @@ class _WelcomeState extends State<Welcome> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image.asset('logo.png',
+                  Image.asset('assets/image/logo.png',
                     width: 200,
                     height: 200,),
                 ],
@@ -29,6 +30,7 @@ class _WelcomeState extends State<Welcome> {
               SizedBox(height: 15),
               Text('Review System',
                 style: TextStyle(
+                  fontFamily: 'Poppins',
                   fontSize: 25,
                   fontWeight: FontWeight.w900,
                   color: Color.fromRGBO(67, 104, 80, 100)),

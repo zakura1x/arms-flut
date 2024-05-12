@@ -17,7 +17,7 @@ class _LoginState extends State<Login> {
           children: [
             // Background Image
             Image.asset(
-              'loginbg.png',
+              'assets/image/loginbg.png',
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height,
               fit: BoxFit.fill, // changed BoxFit.cover to BoxFit.fill
