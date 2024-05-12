@@ -26,14 +26,14 @@ class _ForgotState extends State<Forgot> {
           Column(
             children: [
               // App Bar with back button
-              Container(
+              SizedBox(
                 height: 400, // Set the height here
                 child: AppBar(
                   backgroundColor: Colors.transparent,
                   elevation: 0, // Remove shadow
                   automaticallyImplyLeading: false, // Prevent automatic back button
                   leading: IconButton(
-                    icon: Icon(Icons.arrow_back, color: Colors.white), // Make icon white
+                    icon: const Icon(Icons.arrow_back, color: Colors.white), // Make icon white
                     onPressed: () {
                       Navigator.of(context).push(
                         MaterialPageRoute(
