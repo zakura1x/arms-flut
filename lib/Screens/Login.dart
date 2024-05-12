@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:arms/Screens/Forgot.dart';
 import 'package:arms/Screens/HomePage.dart';
+import 'package:arms/Screens/Register.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key});
@@ -178,6 +179,11 @@ class _LoginState extends State<Login> {
                               ),
                               TextButton(
                                 onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => Register()),
+                                  );
                                   // Add navigation logic for registration page
                                 },
                                 child: Text(

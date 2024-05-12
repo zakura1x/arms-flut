@@ -9,6 +9,15 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   TextEditingController _searchController = TextEditingController();
+  int _selectedIndex = 0; // to track the selected index of the bottom navigation bar
+
+  // Function to handle bottom navigation bar item selection
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+      // Implement navigation logic based on index
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +26,7 @@ class _HomePageState extends State<HomePage> {
         children: [
           const SizedBox(height: 30),
           Padding(
-            padding: const EdgeInsets.only(left: 20, right: 20), 
+            padding: const EdgeInsets.only(left: 20, right: 20),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -95,6 +104,37 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
         ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.notifications),
+            label: 'Notifications',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.book),
+            label: 'Favorites',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.bookmark),
+            label: 'Cart',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Profile',
+          ),
+        ],
+        iconSize: 30,
+        currentIndex: _selectedIndex,
+        showSelectedLabels: false,
+        selectedItemColor: Colors.blue,
+        unselectedItemColor: Color.fromRGBO(127, 133, 149, 1), // Set unselected item color to black
+        elevation: 0.0, // Remove the bottom border line
+        onTap: _onItemTapped,
       ),
     );
   }
