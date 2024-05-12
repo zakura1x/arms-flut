@@ -80,6 +80,7 @@ class _LoginState extends State<Login> {
                         ),
                         SizedBox(height: 20),
                         TextField(
+                          obscureText: true, // This line makes the text input show asterisks instead of plain text
                           decoration: InputDecoration(
                             filled: true,
                             fillColor: Colors.white,
