@@ -8,30 +8,30 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  TextEditingController _searchController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         children: [
-          SizedBox(height: 30),
+          const SizedBox(height: 30),
           Padding(
-            padding: EdgeInsets.only(left: 20), // Add left padding of 10
+            padding: const EdgeInsets.only(left: 20, right: 20), 
             child: Row(
-              //Make a space between the two widgets
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Column(
+                const Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Hello',
+                      'Hello,',
                       style: TextStyle(
                         fontFamily: 'Poppins',
                         fontSize: 16,
                         color: Color.fromRGBO(107, 114, 134, 1),
                       ),
                     ),
-                    SizedBox(height: 5),
                     Text(
                       'John Doe',
                       style: TextStyle(
@@ -43,13 +43,12 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ],
                 ),
-                // Add a container for the profile picture
                 Container(
                   width: 50,
                   height: 50,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     shape: BoxShape.circle,
-                    image: const DecorationImage(
+                    image: DecorationImage(
                       image: AssetImage('assets/image/loginbg.png'),
                       fit: BoxFit.cover,
                     ),
@@ -58,8 +57,51 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
+          const SizedBox(height: 20),
+          Container(
+            margin: const EdgeInsets.only(left: 20, right: 20),
+            padding: const EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              color: const Color.fromRGBO(217, 217, 217, 1),
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Row(
+              children: [
+                const Icon(Icons.search, color: Color.fromRGBO(107, 114, 134, 1)),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: TextField(
+                    controller: _searchController,
+                    decoration: const InputDecoration(
+                      hintText: 'Search Course',
+                      hintStyle: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 16,
+                        color: Color.fromRGBO(107, 114, 134, 1),
+                      ),
+                      border: InputBorder.none,
+                    ),
+                    style: const TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 16,
+                      color: Colors.black,
+                    ),
+                    onChanged: (value) {
+                      // Handle search logic here
+                    },
+                  ),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _searchController.dispose();
+    super.dispose();
   }
 }
