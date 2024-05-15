@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:arms/Screens/login.dart';
 
 class Welcome extends StatefulWidget {
-  const Welcome({super.key});
+  const Welcome({Key? key}) : super(key: key);
 
   @override
   State<Welcome> createState() => _WelcomeState();
@@ -18,71 +19,74 @@ class _WelcomeState extends State<Welcome> {
           alignment: Alignment.center,
           child: Column(
             children: [
-              SizedBox(height: 200),
+              SizedBox(height: 200.h),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image.asset('assets/image/logo.png',
-                    width: 200,
-                    height: 200,),
+                  Image.asset(
+                    'assets/image/logo.png',
+                    width: 200.w,
+                    height: 200.h,
+                  ),
                 ],
               ),
-              SizedBox(height: 15),
-              Text('Review System',
+              SizedBox(height: 15.h),
+              Text(
+                'Review System',
                 style: TextStyle(
                   fontFamily: 'Poppins',
-                  fontSize: 25,
+                  fontSize: 25.sp,
                   fontWeight: FontWeight.w900,
-                  color: Color.fromRGBO(67, 104, 80, 100)),
-                  ),
-              SizedBox(height: 15),
-              Text('Master your knowledge \nfor upcoming Exam',
+                  color: Color.fromRGBO(67, 104, 80, 100),
+                ),
+              ),
+              SizedBox(height: 15.h),
+              Text(
+                'Master your knowledge \nfor upcoming Exam',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: 20,
+                  fontSize: 20.sp,
                   fontWeight: FontWeight.w400,
                   color: Color.fromRGBO(67, 104, 80, 100),
-                  ),
                 ),
-              SizedBox(height: 15),
+              ),
+              SizedBox(height: 15.h),
               Padding(
-            /////////////Routing. plus import sa taas
-            padding: const EdgeInsets.fromLTRB(10, 60, 10, 40),
-            child: ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (BuildContext context) {
-                      return const Login();
-                    },
+                padding: EdgeInsets.fromLTRB(10.w, 60.h, 10.w, 40.h),
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (BuildContext context) {
+                          return const Login();
+                        },
+                      ),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    shadowColor: Colors.black,
+                    elevation: 10,
+                    backgroundColor: const Color.fromRGBO(67, 104, 80, 1),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15.0),
+                    ),
                   ),
-                ); //////////////
-              },
-              style: ElevatedButton.styleFrom(
-                shadowColor: Colors.black,
-                elevation: 10,
-                backgroundColor: const Color.fromRGBO(67, 104, 80, 1),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15.0),
+                  child: Padding(
+                    padding: EdgeInsets.fromLTRB(90.w, 25.h, 90.w, 25.h),
+                    child: Text(
+                      'Get Started',
+                      style: TextStyle(
+                        fontSize: 20.sp,
+                        color: Color.fromRGBO(235, 235, 235, 1),
+                      ),
+                    ),
+                  ),
                 ),
               ),
-              child: const Padding(
-                padding: EdgeInsets.fromLTRB(90.0, 25.0, 90.0, 25.0),
-                child: Text(
-                  'Get Started',
-                  style: TextStyle(
-                    fontSize: 20.0,
-                    color: Color.fromRGBO(235, 235, 235, 1),
-                  ),
-                ),
-              ),
-            ),
-          ),
             ],
           ),
         ),
       ),
-      
     );
   }
 }

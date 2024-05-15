@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:arms/widgets/NavBar.dart'; 
 
 class HomePage extends StatefulWidget {
@@ -24,20 +25,20 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: Column(
         children: [
-          const SizedBox(height: 30),
+          SizedBox(height: 30.h),
           Padding(
-            padding: const EdgeInsets.only(left: 20, right: 20),
+            padding: EdgeInsets.symmetric(horizontal: 20.w),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Column(
+                Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       'Hello,',
                       style: TextStyle(
                         fontFamily: 'Poppins',
-                        fontSize: 16,
+                        fontSize: 16.sp,
                         color: Color.fromRGBO(107, 114, 134, 1),
                       ),
                     ),
@@ -45,7 +46,7 @@ class _HomePageState extends State<HomePage> {
                       'John Doe',
                       style: TextStyle(
                         fontFamily: 'Poppins',
-                        fontSize: 20,
+                        fontSize: 20.sp,
                         fontWeight: FontWeight.w700,
                         color: Color.fromRGBO(67, 104, 80, 1),
                       ),
@@ -53,9 +54,9 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
                 Container(
-                  width: 50,
-                  height: 50,
-                  decoration: const BoxDecoration(
+                  width: 50.w,
+                  height: 50.w,
+                  decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     image: DecorationImage(
                       image: AssetImage('assets/image/loginbg.png'),
@@ -66,33 +67,33 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
-          const SizedBox(height: 20),
+          SizedBox(height: 20.h),
           Container(
-            margin: const EdgeInsets.only(left: 20, right: 20),
-            padding: const EdgeInsets.all(10),
+            margin: EdgeInsets.symmetric(horizontal: 20.w),
+            padding: EdgeInsets.all(10.sp),
             decoration: BoxDecoration(
-              color: const Color.fromRGBO(217, 217, 217, 1),
-              borderRadius: BorderRadius.circular(10),
+              color: Color.fromRGBO(217, 217, 217, 1),
+              borderRadius: BorderRadius.circular(10.sp),
             ),
             child: Row(
               children: [
-                const Icon(Icons.search, color: Color.fromRGBO(107, 114, 134, 1)),
-                const SizedBox(width: 10),
+                Icon(Icons.search, color: Color.fromRGBO(107, 114, 134, 1)),
+                SizedBox(width: 10.w),
                 Expanded(
                   child: TextField(
                     controller: _searchController,
-                    decoration: const InputDecoration(
+                    decoration: InputDecoration(
                       hintText: 'Search Course',
                       hintStyle: TextStyle(
                         fontFamily: 'Poppins',
-                        fontSize: 16,
+                        fontSize: 16.sp,
                         color: Color.fromRGBO(107, 114, 134, 1),
                       ),
                       border: InputBorder.none,
                     ),
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontFamily: 'Poppins',
-                      fontSize: 16,
+                      fontSize: 16.sp,
                       color: Colors.black,
                     ),
                     onChanged: (value) {
