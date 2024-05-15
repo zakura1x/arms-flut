@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:arms/Screens/Login.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:arms/widgets/CustomTextField.dart';
 
 class Register extends StatelessWidget {
   const Register({Key? key}) : super(key: key);
@@ -8,7 +10,8 @@ class Register extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: true, // This allows the Scaffold to adjust when the keyboard appears
+      resizeToAvoidBottomInset:
+          true, // This allows the Scaffold to adjust when the keyboard appears
       body: Stack(
         children: [
           // Background Image
@@ -20,10 +23,12 @@ class Register extends StatelessWidget {
           ),
           // Registration Form
           SingleChildScrollView(
+            padding: EdgeInsets.only(top: 50.0),
             child: Column(
               children: [
                 Container(
-                  height: ScreenUtil().screenHeight * 0.4, // Adjust the height dynamically
+                  height: ScreenUtil().screenHeight *
+                      0.4, // Adjust the height dynamically
                 ),
                 Container(
                   padding: EdgeInsets.all(20),
@@ -39,153 +44,33 @@ class Register extends StatelessWidget {
                     children: [
                       Text(
                         'Registration',
-                        style: TextStyle(
-                          color: Color(0xFF436850),
+                        style: GoogleFonts.poppins(
                           fontSize: 32.sp,
-                          fontFamily: 'Poppins',
                           fontWeight: FontWeight.w600,
+                          color: Color.fromRGBO(67, 104, 80, 1),
                         ),
                       ),
                       SizedBox(height: 20.h),
-                      TextField(
-                        decoration: InputDecoration(
-                          filled: true,
-                          fillColor: Colors.white,
-                          labelText: 'First Name',
-                          labelStyle: TextStyle(
-                            fontSize: 20.sp,
-                            fontWeight: FontWeight.bold,
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              width: 2.w,
-                              color: Colors.black26,
-                            ),
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              width: 2.w,
-                              color: Colors.black26,
-                            ),
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                        ),
-                      ),
+                      CustomTextField(label: 'First Name'),
+                      SizedBox(height: 20.h),
+                      CustomTextField(label: 'Middle Name'),
+                      SizedBox(height: 20.h),
+                      CustomTextField(label: 'Last Name'),
+                      SizedBox(height: 20.h),
+                      CustomTextField(label: 'ID Number'),
+                      SizedBox(height: 20.h),
+                      CustomTextField(label: 'UNC Email'),
                       SizedBox(height: 20.h),
                       TextField(
-                        decoration: InputDecoration(
-                          filled: true,
-                          fillColor: Colors.white,
-                          labelText: 'Middle Name',
-                          labelStyle: TextStyle(
-                            fontSize: 20.sp,
-                            fontWeight: FontWeight.bold,
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              width: 2.w,
-                              color: Colors.black26,
-                            ),
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              width: 2.w,
-                              color: Colors.black26,
-                            ),
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: 20.h),
-                      TextField(
-                        decoration: InputDecoration(
-                          filled: true,
-                          fillColor: Colors.white,
-                          labelText: 'Last Name',
-                          labelStyle: TextStyle(
-                            fontSize: 20.sp,
-                            fontWeight: FontWeight.bold,
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              width: 2.w,
-                              color: Colors.black26,
-                            ),
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              width: 2.w,
-                              color: Colors.black26,
-                            ),
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: 20.h),
-                      TextField(
-                        decoration: InputDecoration(
-                          filled: true,
-                          fillColor: Colors.white,
-                          labelText: 'ID Number',
-                          labelStyle: TextStyle(
-                            fontSize: 20.sp,
-                            fontWeight: FontWeight.bold,
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              width: 2.w,
-                              color: Colors.black26,
-                            ),
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              width: 2.w,
-                              color: Colors.black26,
-                            ),
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: 20.h),
-                      TextField(
-                        decoration: InputDecoration(
-                          filled: true,
-                          fillColor: Colors.white,
-                          labelText: 'UNC Email',
-                          labelStyle: TextStyle(
-                            fontSize: 20.sp,
-                            fontWeight: FontWeight.bold,
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              width: 2.w,
-                              color: Colors.black26,
-                            ),
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              width: 2.w,
-                              color: Colors.black26,
-                            ),
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: 20.h),
-                      TextField(
+                        obscureText: true,
                         decoration: InputDecoration(
                           filled: true,
                           fillColor: Colors.white,
                           labelText: 'Password',
-                          labelStyle: TextStyle(
-                            fontSize: 20.sp,
-                            fontWeight: FontWeight.bold,
-                          ),
+                          labelStyle: GoogleFonts.poppins(
+                              fontSize: 20.sp,
+                              fontWeight: FontWeight.w500,
+                              color: Color.fromRGBO(0, 0, 0, 0.473)),
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               width: 2.w,
@@ -219,11 +104,13 @@ class Register extends StatelessWidget {
                             ),
                           ),
                           child: Padding(
-                            padding: EdgeInsets.fromLTRB(90.w, 25.h, 90.w, 25.h),
+                            padding:
+                                EdgeInsets.fromLTRB(90.w, 25.h, 90.w, 25.h),
                             child: Text(
                               'Sign Up',
-                              style: TextStyle(
+                              style: GoogleFonts.poppins(
                                 fontSize: 24.sp,
+                                fontWeight: FontWeight.w600,
                                 color: Color.fromRGBO(235, 235, 235, 1),
                               ),
                             ),
@@ -234,17 +121,32 @@ class Register extends StatelessWidget {
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => const Login()),
+                            MaterialPageRoute(
+                                builder: (context) => const Login()),
                           );
                         },
-                        child: Text(
-                          'Do you have already an Account? Login Now!',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: 16.sp,
-                            fontWeight: FontWeight.w400,
-                            color: Color.fromRGBO(67, 104, 80, 100),
-                          ),
+                        child: Row(
+                          children: [
+                            Text(
+                              'Do you have already an Account? ',
+                              textAlign: TextAlign.center,
+                              style: GoogleFonts.poppins(
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.w400,
+                                color: Colors.black,
+                              ),
+                            ),
+                            Text(
+                              'Login Now!',
+                              textAlign: TextAlign.center,
+                              style: GoogleFonts.poppins(
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.w300,
+                                fontStyle: FontStyle.italic,
+                                color: Color.fromRGBO(67, 104, 80, 1),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ],

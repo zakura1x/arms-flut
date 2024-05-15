@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:arms/Screens/Welcome.dart';
 import 'package:arms/Screens/Login.dart';
-import 'package:arms/Screens/ForgotMessage.dart';
 
-class Forgot extends StatefulWidget {
-  const Forgot({Key? key}) : super(key: key);
+class ForgotMessage extends StatefulWidget {
+  const ForgotMessage({Key? key}) : super(key: key);
 
   @override
-  State<Forgot> createState() => _ForgotState();
+  State<ForgotMessage> createState() => _ForgotMessageState();
 }
 
-class _ForgotState extends State<Forgot> {
+class _ForgotMessageState extends State<ForgotMessage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,7 +62,7 @@ class _ForgotState extends State<Forgot> {
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
                           Text(
-                            'Forgot Password?',
+                            'Forgot \nPassword?',
                             textAlign: TextAlign.left,
                             style: TextStyle(
                               fontSize: 32.sp,
@@ -72,47 +72,33 @@ class _ForgotState extends State<Forgot> {
                           ),
                           SizedBox(height: 10.h),
                           Text(
-                            'Don’t worry! It happens sometimes. Enter your \ne-mail and we’ll send you a password \nreset link ',
+                            'The reset link was Sent to your email. Kindly check your spam if you cannot find it.',
                             textAlign: TextAlign.left,
                             style: TextStyle(
                               fontSize: 16.sp,
                               fontWeight: FontWeight.w400,
                             ),
                           ),
-                          SizedBox(height: 20.h),
-                          TextField(
-                            decoration: InputDecoration(
-                              filled: true,
-                              fillColor: Colors.white,
-                              labelText: 'Email Address',
-                              labelStyle: TextStyle(
-                                fontSize: 20.sp,
-                                fontWeight: FontWeight.bold,
+                          SizedBox(height: 20.h),  
+                          //Success Icon
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.check_circle,
+                                color: Color.fromRGBO(37, 130, 69, 1),
+                                size: 80.sp,
                               ),
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  width: 2.w,
-                                  color: Colors.black26,
-                                ),
-                                borderRadius: BorderRadius.circular(10.sp),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  width: 2.w,
-                                  color: Colors.black26,
-                                ),
-                                borderRadius: BorderRadius.circular(10.sp),
-                              ),
-                            ),
-                          ),
+                            ],
+                          ),                  
                           Padding(
-                            padding: EdgeInsets.fromLTRB(10.w, 60.h, 10.w, 40.h),
+                            padding: EdgeInsets.fromLTRB(10.w, 20.h, 10.w, 40.h),
                             child: ElevatedButton(
                               onPressed: () {
                                 Navigator.of(context).push(
                                   MaterialPageRoute(
                                     builder: (BuildContext context) {
-                                      return const ForgotMessage();
+                                      return const Welcome();
                                     },
                                   ),
                                 );
@@ -126,9 +112,9 @@ class _ForgotState extends State<Forgot> {
                                 ),
                               ),
                               child: Padding(
-                                padding: EdgeInsets.fromLTRB(90.w, 25.h, 90.w, 25.h),
+                                padding: EdgeInsets.fromLTRB(60.w, 25.h, 60.w, 25.h),
                                 child: Text(
-                                  'Submit',
+                                  'Return to Login',
                                   style: TextStyle(
                                     fontSize: 24.sp,
                                     color: Color.fromRGBO(235, 235, 235, 1),

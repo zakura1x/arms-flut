@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:arms/Screens/login.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Welcome extends StatefulWidget {
   const Welcome({Key? key}) : super(key: key);
@@ -33,24 +34,23 @@ class _WelcomeState extends State<Welcome> {
               SizedBox(height: 15.h),
               Text(
                 'Review System',
-                style: TextStyle(
-                  fontFamily: 'Poppins',
+                style: GoogleFonts.poppins(
                   fontSize: 25.sp,
-                  fontWeight: FontWeight.w900,
-                  color: Color.fromRGBO(67, 104, 80, 100),
+                  fontWeight: FontWeight.w700,
+                  color: Color.fromRGBO(67, 104, 80, 1),
                 ),
               ),
               SizedBox(height: 15.h),
               Text(
                 'Master your knowledge \nfor upcoming Exam',
                 textAlign: TextAlign.center,
-                style: TextStyle(
+                style: GoogleFonts.poppins(
                   fontSize: 20.sp,
                   fontWeight: FontWeight.w400,
-                  color: Color.fromRGBO(67, 104, 80, 100),
+                  color: Color.fromRGBO(67, 104, 80, 1),
                 ),
               ),
-              SizedBox(height: 15.h),
+              SizedBox(height: 166.h),
               Padding(
                 padding: EdgeInsets.fromLTRB(10.w, 60.h, 10.w, 40.h),
                 child: ElevatedButton(
