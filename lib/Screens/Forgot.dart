@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:arms/Screens/Login.dart';
 import 'package:arms/Screens/ForgotMessage.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:arms/widgets/CustomTextField.dart';
 
 class Forgot extends StatefulWidget {
   const Forgot({Key? key}) : super(key: key);
@@ -30,9 +32,11 @@ class _ForgotState extends State<Forgot> {
               AppBar(
                 backgroundColor: Colors.transparent,
                 elevation: 0, // Remove shadow
-                automaticallyImplyLeading: false, // Prevent automatic back button
+                automaticallyImplyLeading:
+                    false, // Prevent automatic back button
                 leading: IconButton(
-                  icon: const Icon(Icons.arrow_back, color: Colors.white), // Make icon white
+                  icon: const Icon(Icons.arrow_back,
+                      color: Colors.white), // Make icon white
                   onPressed: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
@@ -64,7 +68,7 @@ class _ForgotState extends State<Forgot> {
                           Text(
                             'Forgot Password?',
                             textAlign: TextAlign.left,
-                            style: TextStyle(
+                            style: GoogleFonts.poppins(
                               fontSize: 32.sp,
                               fontWeight: FontWeight.w700,
                               color: Color.fromRGBO(67, 104, 80, 1),
@@ -74,39 +78,16 @@ class _ForgotState extends State<Forgot> {
                           Text(
                             'Don’t worry! It happens sometimes. Enter your \ne-mail and we’ll send you a password \nreset link ',
                             textAlign: TextAlign.left,
-                            style: TextStyle(
+                            style: GoogleFonts.poppins(
                               fontSize: 16.sp,
-                              fontWeight: FontWeight.w400,
+                              fontWeight: FontWeight.w300,
                             ),
                           ),
                           SizedBox(height: 20.h),
-                          TextField(
-                            decoration: InputDecoration(
-                              filled: true,
-                              fillColor: Colors.white,
-                              labelText: 'Email Address',
-                              labelStyle: TextStyle(
-                                fontSize: 20.sp,
-                                fontWeight: FontWeight.bold,
-                              ),
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  width: 2.w,
-                                  color: Colors.black26,
-                                ),
-                                borderRadius: BorderRadius.circular(10.sp),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  width: 2.w,
-                                  color: Colors.black26,
-                                ),
-                                borderRadius: BorderRadius.circular(10.sp),
-                              ),
-                            ),
-                          ),
+                          CustomTextField(label: 'Email'),
                           Padding(
-                            padding: EdgeInsets.fromLTRB(10.w, 60.h, 10.w, 40.h),
+                            padding:
+                                EdgeInsets.fromLTRB(10.w, 60.h, 10.w, 40.h),
                             child: ElevatedButton(
                               onPressed: () {
                                 Navigator.of(context).push(
@@ -120,17 +101,20 @@ class _ForgotState extends State<Forgot> {
                               style: ElevatedButton.styleFrom(
                                 shadowColor: Colors.black,
                                 elevation: 10,
-                                backgroundColor: const Color.fromRGBO(67, 104, 80, 1),
+                                backgroundColor:
+                                    const Color.fromRGBO(67, 104, 80, 1),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(15.sp),
                                 ),
                               ),
                               child: Padding(
-                                padding: EdgeInsets.fromLTRB(90.w, 25.h, 90.w, 25.h),
+                                padding:
+                                    EdgeInsets.fromLTRB(90.w, 25.h, 90.w, 25.h),
                                 child: Text(
                                   'Submit',
-                                  style: TextStyle(
+                                  style: GoogleFonts.poppins(
                                     fontSize: 24.sp,
+                                    fontWeight: FontWeight.w600,
                                     color: Color.fromRGBO(235, 235, 235, 1),
                                   ),
                                 ),

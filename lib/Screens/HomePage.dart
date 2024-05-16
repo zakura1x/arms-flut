@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:arms/widgets/NavBar.dart'; 
+import 'package:arms/widgets/NavBar.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key});
@@ -36,16 +37,14 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     Text(
                       'Hello,',
-                      style: TextStyle(
-                        fontFamily: 'Poppins',
+                      style: GoogleFonts.poppins(
                         fontSize: 16.sp,
                         color: Color.fromRGBO(107, 114, 134, 1),
                       ),
                     ),
                     Text(
                       'John Doe',
-                      style: TextStyle(
-                        fontFamily: 'Poppins',
+                      style: GoogleFonts.poppins(
                         fontSize: 20.sp,
                         fontWeight: FontWeight.w700,
                         color: Color.fromRGBO(67, 104, 80, 1),
@@ -84,16 +83,16 @@ class _HomePageState extends State<HomePage> {
                     controller: _searchController,
                     decoration: InputDecoration(
                       hintText: 'Search Course',
-                      hintStyle: TextStyle(
-                        fontFamily: 'Poppins',
+                      hintStyle: GoogleFonts.poppins(
                         fontSize: 16.sp,
+                        //fontWeight: FontWeight.w500,
                         color: Color.fromRGBO(107, 114, 134, 1),
                       ),
                       border: InputBorder.none,
                     ),
-                    style: TextStyle(
-                      fontFamily: 'Poppins',
+                    style: GoogleFonts.poppins(
                       fontSize: 16.sp,
+                      //fontWeight: FontWeight.w500,
                       color: Colors.black,
                     ),
                     onChanged: (value) {

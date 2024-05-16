@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "398844039842",
+    "project_id": "arms-6863f",
+    "storage_bucket": "arms-6863f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:398844039842:android:aeb932d30211bca15bfdfb",
+        "android_client_info": {
+          "package_name": "com.example.arms"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDoHVyIG2DdWqGi7VpEOSsvqrnMKxxO_M4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

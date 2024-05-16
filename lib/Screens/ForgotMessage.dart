@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:arms/Screens/Welcome.dart';
 import 'package:arms/Screens/Login.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class ForgotMessage extends StatefulWidget {
   const ForgotMessage({Key? key}) : super(key: key);
@@ -30,9 +31,11 @@ class _ForgotMessageState extends State<ForgotMessage> {
               AppBar(
                 backgroundColor: Colors.transparent,
                 elevation: 0, // Remove shadow
-                automaticallyImplyLeading: false, // Prevent automatic back button
+                automaticallyImplyLeading:
+                    false, // Prevent automatic back button
                 leading: IconButton(
-                  icon: const Icon(Icons.arrow_back, color: Colors.white), // Make icon white
+                  icon: const Icon(Icons.arrow_back,
+                      color: Colors.white), // Make icon white
                   onPressed: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
@@ -64,7 +67,7 @@ class _ForgotMessageState extends State<ForgotMessage> {
                           Text(
                             'Forgot \nPassword?',
                             textAlign: TextAlign.left,
-                            style: TextStyle(
+                            style: GoogleFonts.poppins(
                               fontSize: 32.sp,
                               fontWeight: FontWeight.w700,
                               color: Color.fromRGBO(67, 104, 80, 1),
@@ -74,12 +77,12 @@ class _ForgotMessageState extends State<ForgotMessage> {
                           Text(
                             'The reset link was Sent to your email. Kindly check your spam if you cannot find it.',
                             textAlign: TextAlign.left,
-                            style: TextStyle(
+                            style: GoogleFonts.poppins(
                               fontSize: 16.sp,
                               fontWeight: FontWeight.w400,
                             ),
                           ),
-                          SizedBox(height: 20.h),  
+                          SizedBox(height: 20.h),
                           //Success Icon
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -90,9 +93,10 @@ class _ForgotMessageState extends State<ForgotMessage> {
                                 size: 80.sp,
                               ),
                             ],
-                          ),                  
+                          ),
                           Padding(
-                            padding: EdgeInsets.fromLTRB(10.w, 20.h, 10.w, 40.h),
+                            padding:
+                                EdgeInsets.fromLTRB(10.w, 20.h, 10.w, 40.h),
                             child: ElevatedButton(
                               onPressed: () {
                                 Navigator.of(context).push(
@@ -106,17 +110,20 @@ class _ForgotMessageState extends State<ForgotMessage> {
                               style: ElevatedButton.styleFrom(
                                 shadowColor: Colors.black,
                                 elevation: 10,
-                                backgroundColor: const Color.fromRGBO(67, 104, 80, 1),
+                                backgroundColor:
+                                    const Color.fromRGBO(67, 104, 80, 1),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(15.sp),
                                 ),
                               ),
                               child: Padding(
-                                padding: EdgeInsets.fromLTRB(60.w, 25.h, 60.w, 25.h),
+                                padding:
+                                    EdgeInsets.fromLTRB(60.w, 25.h, 60.w, 25.h),
                                 child: Text(
                                   'Return to Login',
-                                  style: TextStyle(
+                                  style: GoogleFonts.poppins(
                                     fontSize: 24.sp,
+                                    fontWeight: FontWeight.w600,
                                     color: Color.fromRGBO(235, 235, 235, 1),
                                   ),
                                 ),
