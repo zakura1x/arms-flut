@@ -1,11 +1,11 @@
+import 'package:arms/Screens/Authentication/forgot_form.dart';
 import 'package:arms/widgets/Buttons.dart';
 import 'package:arms/widgets/CustomPasswordField.dart';
+import 'package:arms/widgets/CustomTextField.dart';
+import 'package:arms/widgets/NavMenu.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:arms/Screens/Authentication/forgot_form.dart';
-import 'package:arms/widgets/NavMenu.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:arms/widgets/CustomTextField.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);

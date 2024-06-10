@@ -1,4 +1,8 @@
+import 'package:arms/Screens/assessment_page.dart';
 import 'package:arms/Screens/home_page.dart';
+import 'package:arms/Screens/module_page.dart';
+import 'package:arms/Screens/notification_page.dart';
+import 'package:arms/Screens/profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -67,10 +71,10 @@ class NavigationController extends GetxController {
 
   final List<Widget> pages = [
     HomePage(),
-    // NotificationsPage(),
-    // ModulesPage(),
-    // AssessmentPage(),
-    // ProfilePage(),
+    NotificationsPage(),
+    ModulesPage(),
+    AssessmentPage(),
+    ProfilePage(),
   ];
 
   void onDestinationSelected(int index) {
