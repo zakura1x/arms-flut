@@ -2,27 +2,32 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class CustomTextField extends StatelessWidget {
-  final String label;
+class CustomPasswordField extends StatefulWidget {
   final TextEditingController controller;
-  final IconData? icon; // Add this line
 
-  const CustomTextField(
-      {Key? key, required this.label, required this.controller, this.icon})
+  const CustomPasswordField({Key? key, required this.controller})
       : super(key: key);
+
+  @override
+  _CustomPasswordFieldState createState() => _CustomPasswordFieldState();
+}
+
+class _CustomPasswordFieldState extends State<CustomPasswordField> {
+  bool _obscureText = true;
 
   @override
   Widget build(BuildContext context) {
     return TextField(
-      controller: controller,
+      controller: widget.controller,
+      obscureText: _obscureText,
       decoration: InputDecoration(
         filled: true,
         fillColor: Colors.white,
-        labelText: label,
+        labelText: 'Password',
         labelStyle: GoogleFonts.poppins(
           fontSize: 20.sp,
           fontWeight: FontWeight.w500,
-          color: Color.fromRGBO(0, 0, 0, 0.5),
+          color: Color.fromRGBO(0, 0, 0, 0.473),
         ),
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide(
@@ -38,7 +43,17 @@ class CustomTextField extends StatelessWidget {
           ),
           borderRadius: BorderRadius.circular(10.0),
         ),
-        prefixIcon: icon != null ? Icon(icon) : null, // Add this line
+        prefixIcon: Icon(Icons.lock),
+        suffixIcon: IconButton(
+          icon: Icon(
+            _obscureText ? Icons.visibility : Icons.visibility_off,
+          ),
+          onPressed: () {
+            setState(() {
+              _obscureText = !_obscureText;
+            });
+          },
+        ),
       ),
     );
   }
