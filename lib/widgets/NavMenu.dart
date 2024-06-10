@@ -1,8 +1,12 @@
 import 'package:arms/Screens/assessment_page.dart';
 import 'package:arms/Screens/home_page.dart';
+<<<<<<< Updated upstream
 import 'package:arms/Screens/module_page.dart';
 import 'package:arms/Screens/notification_page.dart';
 import 'package:arms/Screens/profile_page.dart';
+=======
+import 'package:arms/controllers/navigation_controller.dart';
+>>>>>>> Stashed changes
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -65,6 +69,7 @@ class NavMenu extends StatelessWidget {
         body: Obx(() => controller.pages[controller.selectedIndex.value]));
   }
 }
+<<<<<<< Updated upstream
 
 class NavigationController extends GetxController {
   final Rx<int> selectedIndex = 0.obs;
@@ -81,3 +86,5 @@ class NavigationController extends GetxController {
     selectedIndex.value = index;
   }
 }
+=======
+>>>>>>> Stashed changes

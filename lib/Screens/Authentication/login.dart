@@ -1,10 +1,20 @@
+<<<<<<< Updated upstream
 import 'package:arms/Screens/Authentication/forgot_form.dart';
+=======
+import 'package:arms/controllers/authentication.dart';
+>>>>>>> Stashed changes
 import 'package:arms/widgets/Buttons.dart';
 import 'package:arms/widgets/CustomPasswordField.dart';
 import 'package:arms/widgets/CustomTextField.dart';
 import 'package:arms/widgets/NavMenu.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+<<<<<<< Updated upstream
+=======
+import 'package:arms/Screens/Authentication/forgot_form.dart';
+import 'package:arms/widgets/NavMenu.dart';
+import 'package:get/get.dart';
+>>>>>>> Stashed changes
 import 'package:google_fonts/google_fonts.dart';
 
 class Login extends StatefulWidget {
@@ -17,6 +27,10 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   final TextEditingController idNumber = TextEditingController();
   final TextEditingController password = TextEditingController();
+
+  //Authentication Controller
+  final AuthenticationController _authController =
+      Get.put(AuthenticationController());
 
   @override
   Widget build(BuildContext context) {
@@ -93,17 +107,21 @@ class _LoginState extends State<Login> {
                               ),
                             ),
                           ),
-                          Buttons(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => NavMenu(),
-                                ),
-                              );
-                            },
-                            buttonText: 'LOGIN',
-                          ),
+                          Obx(() {
+                            return _authController.isLoading.value
+                                ? Center(
+                                    child: CircularProgressIndicator(),
+                                  )
+                                : Buttons(
+                                    onPressed: () async {
+                                      await _authController.login(
+                                        idNumber: idNumber.text.trim(),
+                                        password: password.text.trim(),
+                                      );
+                                    },
+                                    buttonText: 'LOGIN',
+                                  );
+                          }),
                         ],
                       ),
                     ),
