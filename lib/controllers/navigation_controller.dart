@@ -20,4 +20,8 @@ class NavigationController extends GetxController {
   void onDestinationSelected(int index) {
     selectedIndex.value = index;
   }
+
+  // void navigateToTaskPage() {
+  //   Get.to(() => TaskPage());
+  // }
 }

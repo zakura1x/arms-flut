@@ -8,7 +8,7 @@ import 'package:get_storage/get_storage.dart';
 import 'package:http/http.dart' as http;
 
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
-import 'package:top_snackbar_flutter/tap_bounce_container.dart';
+//import 'package:top_snackbar_flutter/tap_bounce_container.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
 class AuthenticationController extends GetxController {
@@ -68,25 +68,30 @@ class AuthenticationController extends GetxController {
 
   void showCustomSnackbar(String title, String message,
       {bool isError = false}) {
-    if (Get.context != null) {
-      OverlayState? overlayState = Overlay.of(Get.context!);
-      if (isError == true) {
-        showTopSnackBar(
-          overlayState,
-          CustomSnackBar.error(
-            message: message,
-            textStyle: const TextStyle(fontSize: 20),
-          ),
-        );
-      } else {
-        showTopSnackBar(
-          overlayState,
-          CustomSnackBar.success(
-            message: message,
-            textStyle: const TextStyle(fontSize: 20),
-          ),
-        );
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final context = Get.overlayContext;
+      if (context != null) {
+        final overlayState = Overlay.of(context);
+        if (overlayState != null) {
+          if (isError) {
+            showTopSnackBar(
+              overlayState,
+              CustomSnackBar.error(
+                message: message,
+                textStyle: const TextStyle(fontSize: 20),
+              ),
+            );
+          } else {
+            showTopSnackBar(
+              overlayState,
+              CustomSnackBar.success(
+                message: message,
+                textStyle: const TextStyle(fontSize: 20),
+              ),
+            );
+          }
+        }
       }
-    }
+    });
   }
 }

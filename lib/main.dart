@@ -1,4 +1,5 @@
 import 'package:arms/Screens/home_page.dart';
+import 'package:arms/widgets/NavMenu.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:arms/Screens/welcome.dart';
@@ -35,7 +36,7 @@ class MyApp extends StatelessWidget {
               Theme.of(context).textTheme,
             ),
           ),
-          home: token == null ? const Welcome() : const HomePage(),
+          home: token == null ? const Welcome() : const NavMenu(),
         );
       },
     );
