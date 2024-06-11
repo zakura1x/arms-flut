@@ -1,4 +1,8 @@
+import 'package:arms/Screens/welcome.dart';
+import 'package:arms/controllers/authentication.dart';
+import 'package:arms/controllers/navigation_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -8,6 +12,7 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+  final controller = Get.put(AuthenticationController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,7 +74,19 @@ class _ProfilePageState extends State<ProfilePage> {
             const SizedBox(height: 32.0),
             Center(
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  //Sign out
+                  controller.signOut();
+
+                  //Go to welcome page
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (BuildContext context) {
+                        return const Welcome();
+                      },
+                    ),
+                  );
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.red,
                   padding: const EdgeInsets.symmetric(

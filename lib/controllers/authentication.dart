@@ -66,6 +66,12 @@ class AuthenticationController extends GetxController {
     }
   }
 
+  //Sign out
+  void signOut() {
+    box.remove('token');
+    Get.offAll(() => const NavMenu());
+  }
+
   void showCustomSnackbar(String title, String message,
       {bool isError = false}) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
