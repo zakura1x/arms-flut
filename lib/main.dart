@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
               Theme.of(context).textTheme,
             ),
           ),
-          home: token == null ? const Welcome() : const NavMenu(),
+          home: token == null ? const Welcome() : const HomePage(),
         );
       },
     );

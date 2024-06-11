@@ -1,3 +1,4 @@
+import 'package:arms/Screens/TaskList/task_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:arms/Screens/home_page.dart';
@@ -21,7 +22,12 @@ class NavigationController extends GetxController {
     selectedIndex.value = index;
   }
 
-  // void navigateToTaskPage() {
-  //   Get.to(() => TaskPage());
-  // }
+  void resetState() {
+    selectedIndex.value = 0;
+  }
+
+  void navigateToTaskPage() {
+    // Use Get.toNamed for named routes if you have defined them
+    Get.to(() => TaskPage());
+  }
 }

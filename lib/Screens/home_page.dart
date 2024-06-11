@@ -1,7 +1,11 @@
+//import 'package:arms/controllers/navigation_controller.dart';
+import 'package:arms/controllers/navigation_controller.dart';
 import 'package:arms/widgets/custom_card_activity.dart';
 import 'package:arms/widgets/custom_home_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+//import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatefulWidget {
@@ -14,6 +18,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(NavigationController());
     return SafeArea(
         child: ListView(
       children: [
@@ -157,14 +162,19 @@ class _HomePageState extends State<HomePage> {
                   color: Color.fromRGBO(67, 104, 80, 1),
                 ),
               ),
-              Text(
-                'View All',
-                style: GoogleFonts.poppins(
-                  fontSize: 18.sp,
-                  fontWeight: FontWeight.w500,
-                  color: Color.fromRGBO(97, 97, 97, 1),
-                ),
-              ),
+              //Make a view all button
+              TextButton(
+                  onPressed: () {
+                    controller.navigateToTaskPage();
+                  },
+                  child: Text(
+                    'View All',
+                    style: GoogleFonts.poppins(
+                      fontSize: 18.sp,
+                      fontWeight: FontWeight.w500,
+                      color: Color.fromRGBO(97, 97, 97, 1),
+                    ),
+                  )),
             ],
           ),
         ),

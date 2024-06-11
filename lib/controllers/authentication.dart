@@ -1,6 +1,8 @@
 import 'dart:convert';
 
+import 'package:arms/Screens/welcome.dart';
 import 'package:arms/constants/constant_api.dart';
+import 'package:arms/controllers/navigation_controller.dart';
 import 'package:arms/widgets/NavMenu.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -69,7 +71,10 @@ class AuthenticationController extends GetxController {
   //Sign out
   void signOut() {
     box.remove('token');
-    Get.offAll(() => const NavMenu());
+
+    // Reset state of NavigationController
+    Get.find<NavigationController>().resetState();
+    Get.offAll(() => const Welcome());
   }
 
   void showCustomSnackbar(String title, String message,
