@@ -1,4 +1,5 @@
 import 'package:arms/controllers/navigation_controller.dart';
+import 'package:arms/controllers/task_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -13,6 +14,28 @@ class TaskPage extends StatefulWidget {
 
 class _TaskPageState extends State<TaskPage> {
   int selectedButtonIndex = 0; // Initially, no button is selected
+
+  final TaskController taskController = Get.put(TaskController());
+
+  @override
+  void initState() {
+    super.initState();
+    taskController.getAllTasks();
+  }
+
+  void filterTasks(int index) {
+    setState(() {
+      selectedButtonIndex = index;
+    });
+
+    if (index == 0) {
+      taskController.filterTasks('all');
+    } else if (index == 1) {
+      taskController.filterTasks('inProgress');
+    } else if (index == 2) {
+      taskController.filterTasks('completed');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -62,11 +85,9 @@ class _TaskPageState extends State<TaskPage> {
                       //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         CustomButtonTaskList(
-                          text: 'Completed',
+                          text: 'All Tasks',
                           onPressed: () {
-                            setState(() {
-                              selectedButtonIndex = 0;
-                            });
+                            filterTasks(0);
                           },
                           isSelected: selectedButtonIndex == 0,
                         ),
@@ -74,19 +95,15 @@ class _TaskPageState extends State<TaskPage> {
                         CustomButtonTaskList(
                           text: 'In Progress',
                           onPressed: () {
-                            setState(() {
-                              selectedButtonIndex = 1;
-                            });
+                            filterTasks(1);
                           },
                           isSelected: selectedButtonIndex == 1,
                         ),
                         SizedBox(width: 15.w),
                         CustomButtonTaskList(
-                          text: 'To do',
+                          text: 'Completed',
                           onPressed: () {
-                            setState(() {
-                              selectedButtonIndex = 2;
-                            });
+                            filterTasks(2);
                           },
                           isSelected: selectedButtonIndex == 2,
                         ),
@@ -96,7 +113,108 @@ class _TaskPageState extends State<TaskPage> {
                 ],
               ),
             ),
-            // Add more content if needed
+            Expanded(
+              child: Obx(() {
+                return ListView.builder(
+                  itemCount: taskController.filteredTasks.length,
+                  itemBuilder: (context, index) {
+                    final task = taskController.tasks[index];
+                    return Padding(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: 20.w, vertical: 10.h),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.black),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Padding(
+                          padding: EdgeInsets.all(15.w),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    task.title,
+                                    style: GoogleFonts.poppins(
+                                      fontSize: 18.sp,
+                                      fontWeight: FontWeight.w400,
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                  IconButton(
+                                    onPressed: () {},
+                                    icon: Icon(Icons.more_horiz, size: 25.sp),
+                                  ),
+                                ],
+                              ),
+                              SizedBox(height: 10.h),
+                              Text(
+                                task.description,
+                                style: GoogleFonts.poppins(
+                                  fontSize: 16.sp,
+                                  fontWeight: FontWeight.w400,
+                                  fontStyle: FontStyle.italic,
+                                  color: Color.fromRGBO(41, 45, 50, 1),
+                                ),
+                              ),
+                              SizedBox(height: 20.h),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Row(
+                                    children: [
+                                      Icon(Icons.calendar_today_rounded,
+                                          size: 20.sp),
+                                      SizedBox(width: 10.w),
+                                      Text(
+                                        task.dueDate
+                                            .toString()
+                                            .substring(0, 10),
+                                        style: GoogleFonts.poppins(
+                                          fontSize: 16.sp,
+                                          fontWeight: FontWeight.w400,
+                                          color: Colors.black,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Container(
+                                    decoration: BoxDecoration(
+                                      color: task.status == 'completed'
+                                          ? Color.fromRGBO(66, 96, 76, 1)
+                                          : Colors.black,
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    child: Padding(
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: 10.w, vertical: 5.h),
+                                      child: Text(
+                                        task.status == 'completed'
+                                            ? 'Completed'
+                                            : 'In Progress',
+                                        style: GoogleFonts.poppins(
+                                          fontSize: 16.sp,
+                                          fontWeight: FontWeight.w400,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                );
+              }),
+            ),
           ],
         ),
       ),
