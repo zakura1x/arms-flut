@@ -1,3 +1,4 @@
+import 'package:arms/Screens/TaskList/task_add.dart';
 import 'package:arms/controllers/navigation_controller.dart';
 import 'package:arms/controllers/task_controller.dart';
 import 'package:flutter/material.dart';
@@ -75,7 +76,12 @@ class _TaskPageState extends State<TaskPage> {
                           ),
                         ],
                       ),
-                      Icon(Icons.add_box_outlined, size: 25.sp),
+                      IconButton(
+                        onPressed: () {
+                          controller.navigateToSubPage(const TaskAdd());
+                        },
+                        icon: Icon(Icons.add_box_outlined, size: 25.sp),
+                      )
                     ],
                   ),
                   SizedBox(height: 20.h),
