@@ -1,4 +1,4 @@
-import 'package:arms/Screens/home_page.dart';
+import 'package:arms/controllers/navigation_controller.dart';
 import 'package:arms/widgets/NavMenu.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -36,7 +36,10 @@ class MyApp extends StatelessWidget {
               Theme.of(context).textTheme,
             ),
           ),
-          home: token == null ? const Welcome() : const HomePage(),
+          initialBinding: BindingsBuilder(() {
+            Get.put(NavigationController());
+          }), // Initialize NavigationController
+          home: token == null ? const Welcome() : const NavMenu(),
         );
       },
     );

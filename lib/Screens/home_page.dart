@@ -1,4 +1,5 @@
 //import 'package:arms/controllers/navigation_controller.dart';
+import 'package:arms/Screens/TaskList/task_page.dart';
 import 'package:arms/controllers/navigation_controller.dart';
 import 'package:arms/widgets/custom_card_activity.dart';
 import 'package:arms/widgets/custom_home_card.dart';
@@ -165,7 +166,8 @@ class _HomePageState extends State<HomePage> {
               //Make a view all button
               TextButton(
                   onPressed: () {
-                    controller.navigateToTaskPage();
+                    //Navigate to taskpage
+                    controller.navigateToSubPage(const TaskPage());
                   },
                   child: Text(
                     'View All',

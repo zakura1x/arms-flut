@@ -1,17 +1,17 @@
-import 'package:arms/controllers/navigation_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:arms/controllers/navigation_controller.dart'; // Ensure correct path
 
 class NavMenu extends StatelessWidget {
-  const NavMenu({super.key});
+  const NavMenu({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(NavigationController());
-    return Scaffold(
-      bottomNavigationBar: Obx(
-        () => NavigationBarTheme(
+    final controller = Get.find<NavigationController>();
+    return Obx(
+      () => Scaffold(
+        bottomNavigationBar: NavigationBarTheme(
           data: NavigationBarThemeData(
             backgroundColor: Colors.white,
             indicatorColor: Colors.transparent,
@@ -57,8 +57,8 @@ class NavMenu extends StatelessWidget {
             ],
           ),
         ),
+        body: controller.currentSubPage.value, // Show the current page
       ),
-      body: Obx(() => controller.pages[controller.selectedIndex.value]),
     );
   }
 }
