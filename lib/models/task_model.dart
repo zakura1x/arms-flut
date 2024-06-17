@@ -1,11 +1,7 @@
-// To parse this JSON data, do
-//
-//     final taskModel = taskModelFromJson(jsonString);
-
 import 'dart:convert';
 
+// Functions to parse and convert TaskModel from/to JSON
 TaskModel taskModelFromJson(String str) => TaskModel.fromJson(json.decode(str));
-
 String taskModelToJson(TaskModel data) => json.encode(data.toJson());
 
 class TaskModel {
@@ -28,7 +24,7 @@ class Task {
   int id;
   String title;
   String description;
-  DateTime dueDate;
+  DateTime? dueDate;
   String status;
   int userId;
   dynamic deletedAt;
@@ -39,10 +35,10 @@ class Task {
     required this.id,
     required this.title,
     required this.description,
-    required this.dueDate,
+    this.dueDate,
     required this.status,
     required this.userId,
-    required this.deletedAt,
+    this.deletedAt,
     required this.createdAt,
     required this.updatedAt,
   });
@@ -51,7 +47,8 @@ class Task {
         id: json["id"],
         title: json["title"],
         description: json["description"],
-        dueDate: DateTime.parse(json["due_date"]),
+        dueDate:
+            json["due_date"] == null ? null : DateTime.parse(json["due_date"]),
         status: json["status"],
         userId: json["user_id"],
         deletedAt: json["deleted_at"],
@@ -63,7 +60,7 @@ class Task {
         "id": id,
         "title": title,
         "description": description,
-        "due_date": dueDate.toIso8601String(),
+        "due_date": dueDate?.toIso8601String(),
         "status": status,
         "user_id": userId,
         "deleted_at": deletedAt,

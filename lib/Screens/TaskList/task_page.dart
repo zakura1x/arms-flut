@@ -56,7 +56,7 @@ class _TaskPageState extends State<TaskPage> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          //Icon for back button
+                          // Icon for back button
                           IconButton(
                             icon: Icon(Icons.arrow_back_ios, size: 25.sp),
                             onPressed: () {
@@ -88,7 +88,7 @@ class _TaskPageState extends State<TaskPage> {
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
-                      //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         CustomButtonTaskList(
                           text: 'All Tasks',
@@ -121,10 +121,12 @@ class _TaskPageState extends State<TaskPage> {
             ),
             Expanded(
               child: Obx(() {
+                // Debug prints to help trace the issue
                 return ListView.builder(
                   itemCount: taskController.filteredTasks.length,
                   itemBuilder: (context, index) {
-                    final task = taskController.tasks[index];
+                    print("Building item at index: $index");
+                    final task = taskController.filteredTasks[index];
                     return Padding(
                       padding: EdgeInsets.symmetric(
                           horizontal: 20.w, vertical: 10.h),
@@ -177,9 +179,12 @@ class _TaskPageState extends State<TaskPage> {
                                           size: 20.sp),
                                       SizedBox(width: 10.w),
                                       Text(
-                                        task.dueDate
-                                            .toString()
-                                            .substring(0, 10),
+                                        //If task.duedate is null, show 'No Due Date'
+                                        task.dueDate == null
+                                            ? 'No Due Date'
+                                            : task.dueDate
+                                                .toString()
+                                                .substring(0, 10),
                                         style: GoogleFonts.poppins(
                                           fontSize: 16.sp,
                                           fontWeight: FontWeight.w400,

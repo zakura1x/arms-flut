@@ -62,7 +62,11 @@ class TaskController extends GetxController {
         var jsonResponse = json.decode(response.body);
 
         var taskModel = TaskModel.fromJson(jsonResponse);
-        return taskModel.tasks;
+
+        var nonDeletedTasks =
+            taskModel.tasks.where((task) => task.deletedAt == null).toList();
+
+        return nonDeletedTasks;
       } else {
         print('Failed to load tasks: ${response.body}');
         return [];
@@ -76,7 +80,7 @@ class TaskController extends GetxController {
   Future addTask({
     required String title,
     required String description,
-    required DateTime dueDate,
+    required String dueDate,
   }) async {
     try {
       var data = {
@@ -84,6 +88,8 @@ class TaskController extends GetxController {
         'description': description,
         'due_date': dueDate.toString(),
       };
+
+      print(data);
 
       var response = await http.post(
         Uri.parse('${url}create-task'),
@@ -114,57 +120,4 @@ class TaskController extends GetxController {
           isError: true);
     }
   }
-
-  // void getAllTasks() async {
-  //   try {
-  //     isLoading(true);
-
-  //     var taskResult = await getTasks();
-  //     if (taskResult != null) {
-  //       tasks.assignAll(taskResult);
-  //     }
-  //   } catch (e) {
-  //     print("Error in fetching tasks: $e");
-  //   } finally {
-  //     isLoading(false);
-  //   }
-  // }
-
-  //pull all the task from the user account
-  // Future getTasks(id) async{
-  //   try{
-  //     tasks.value.clear();
-  //     isLoading(true);
-
-  //     var response = await http.get(
-  //       Uri.parse('${url}')
-  //     )
-
-  //   }
-  // }
-
-  // Future<List<Task>?> getTasks() async {
-  //   try {
-  //     var response = await http.get(
-  //       Uri.parse('${url}get-tasks'),
-  //       headers: {
-  //         'Accept': 'application/json',
-  //         'Authorization': 'Bearer ${box.read('token')}',
-  //       },
-  //     );
-
-  //     if (response.statusCode == 200) {
-  //       var jsonResponse = json.decode(response.body);
-
-  //       var taskModel = TaskModel.fromJson(jsonResponse);
-  //       return taskModel.tasks;
-  //     } else {
-  //       print("Failed to load tasks: ${response.body}");
-  //       return [];
-  //     }
-  //   } catch (e) {
-  //     print("Error in fetching tasks: $e");
-  //     return [];
-  //   }
-  // }
 }
