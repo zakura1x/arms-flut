@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
           initialBinding: BindingsBuilder(() {
             Get.put(NavigationController());
           }), // Initialize NavigationController
-          home: const Welcome(),
+          home: const NavMenu(),
         );
       },
     );

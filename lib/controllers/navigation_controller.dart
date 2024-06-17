@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:arms/Screens/home_page.dart';
 import 'package:arms/Screens/notification_page.dart';
-import 'package:arms/Screens/module_page.dart';
+import 'package:arms/Screens/Modules/module_page.dart';
 import 'package:arms/Screens/assessment_page.dart';
 import 'package:arms/Screens/profile_page.dart';
 

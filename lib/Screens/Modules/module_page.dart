@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class ModulesPage extends StatefulWidget {
   const ModulesPage({super.key});
@@ -13,7 +14,14 @@ class _ModulesPageState extends State<ModulesPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('COURSES'),
+        title: Text(
+          'COURSES',
+          style: GoogleFonts.poppins(
+            fontSize: 32.sp,
+            fontWeight: FontWeight.w700,
+            color: const Color.fromRGBO(67, 104, 80, 1),
+          ),
+        ),
         centerTitle: true,
         automaticallyImplyLeading: false,
       ),
@@ -26,10 +34,18 @@ class _ModulesPageState extends State<ModulesPage> {
                 Expanded(
                   child: TextField(
                     decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.search),
+                      prefixIcon: Icon(
+                        Icons.search,
+                        color: Colors.grey,
+                      ),
                       hintText: 'Search Course',
+                      hintStyle: GoogleFonts.poppins(
+                        fontSize: 16.sp,
+                        fontWeight: FontWeight.w400,
+                        color: Colors.grey,
+                      ),
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(30.0),
+                        borderRadius: BorderRadius.circular(10.0.w),
                       ),
                     ),
                   ),
@@ -37,16 +53,6 @@ class _ModulesPageState extends State<ModulesPage> {
                 SizedBox(width: 10.w),
                 IconButton(
                   icon: Icon(Icons.sort),
-                  onPressed: () {},
-                ),
-                SizedBox(width: 10.w),
-                IconButton(
-                  icon: Icon(Icons.add),
-                  onPressed: () {},
-                ),
-                SizedBox(width: 10.w),
-                IconButton(
-                  icon: Icon(Icons.edit),
                   onPressed: () {},
                 ),
               ],
