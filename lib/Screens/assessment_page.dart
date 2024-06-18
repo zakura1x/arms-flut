@@ -1,3 +1,4 @@
+import 'package:arms/Screens/Assessment/passing_grade.dart';
 import 'package:flutter/material.dart';
 
 class AssessmentPage extends StatefulWidget {
@@ -97,7 +98,14 @@ class _AssessmentPageState extends State<AssessmentPage> {
                 ),
                 title: Text(tile.title),
                 trailing: Icon(Icons.arrow_forward_ios),
-                onTap: () {},
+                onTap: () {
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return PassingDialog();
+                    },
+                  );
+                },
               );
             }).toList(),
           ),
