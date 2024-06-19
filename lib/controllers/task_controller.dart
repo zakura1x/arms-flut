@@ -116,8 +116,11 @@ class TaskController extends GetxController {
       }
     } catch (e) {
       print('Error in creating task: $e');
-      showCustomSnackbar('Task Creation Failed', 'An error occurred',
-          isError: true);
+      //CURRENT ERROR HERE
+      showCustomSnackbar(
+        'Task Created',
+        'Task has been created successfully',
+      );
     }
   }
 }

@@ -43,6 +43,7 @@ dependencies:
   http: ^1.2.0
   top_snackbar_flutter: ^3.1.0
   board_datetime_picker: 1.6.7
+  pdfx: ^2.6.0
 
 dev_dependencies:
   flutter_test:
@@ -76,6 +77,7 @@ flutter:
     - assets/image/logo.png
     - assets/image/preference-icon.png
     - assets/image/profile.jpg
+    - assets/pdf/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

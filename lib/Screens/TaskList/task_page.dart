@@ -125,7 +125,7 @@ class _TaskPageState extends State<TaskPage> {
                 return ListView.builder(
                   itemCount: taskController.filteredTasks.length,
                   itemBuilder: (context, index) {
-                    print("Building item at index: $index");
+                    // print("Building item at index: $index");
                     final task = taskController.filteredTasks[index];
                     return Padding(
                       padding: EdgeInsets.symmetric(

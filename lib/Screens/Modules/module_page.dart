@@ -1,5 +1,8 @@
+import 'package:arms/Screens/Modules/topic_page.dart';
+import 'package:arms/controllers/navigation_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ModulesPage extends StatefulWidget {
@@ -12,6 +15,8 @@ class ModulesPage extends StatefulWidget {
 class _ModulesPageState extends State<ModulesPage> {
   @override
   Widget build(BuildContext context) {
+    final controller = Get.find<NavigationController>();
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -62,16 +67,21 @@ class _ModulesPageState extends State<ModulesPage> {
             child: ListView(
               children: [
                 ModuleTile(
+                  onPressed: () {
+                    controller.navigateToSubPage(const TopicPage());
+                  },
                   imagePath: 'assets/image/course1.png',
                   courseCode: 'BSA 421K',
                   courseTitle: 'TAXATION',
                 ),
                 ModuleTile(
+                  onPressed: () {},
                   imagePath: 'assets/image/course2.png',
                   courseCode: 'BSA 312N',
                   courseTitle: 'MANAGEMENT',
                 ),
                 ModuleTile(
+                  onPressed: () {},
                   imagePath: 'assets/image/course3.png',
                   courseCode: 'BSA 462Q',
                   courseTitle: 'AUDITING',
@@ -89,53 +99,59 @@ class ModuleTile extends StatelessWidget {
   final String imagePath;
   final String courseCode;
   final String courseTitle;
+  final VoidCallback onPressed;
 
   ModuleTile({
     required this.imagePath,
     required this.courseCode,
     required this.courseTitle,
+    required this.onPressed,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(15),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          ClipRRect(
-            borderRadius: BorderRadius.vertical(top: Radius.circular(15)),
-            child: Image.asset(
-              'assets/image/course1.png',
-              height: 150,
-              width: double.infinity,
-              fit: BoxFit.cover,
+    return InkWell(
+      onTap: onPressed,
+      borderRadius: BorderRadius.circular(15),
+      child: Card(
+        margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.vertical(top: Radius.circular(15)),
+              child: Image.asset(
+                imagePath,
+                height: 150,
+                width: double.infinity,
+                fit: BoxFit.cover,
+              ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Row(
-              children: [
-                Expanded(
-                  child: Text(
-                    '$courseCode - $courseTitle',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      '$courseCode - $courseTitle',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
-                ),
-                IconButton(
-                  icon: Icon(Icons.more_vert),
-                  onPressed: () {},
-                ),
-              ],
+                  IconButton(
+                    icon: Icon(Icons.more_vert),
+                    onPressed: () {},
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
