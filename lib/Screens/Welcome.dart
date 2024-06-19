@@ -72,15 +72,11 @@ class _WelcomeState extends State<Welcome> {
                     ),
                   ),
                   child: Padding(
-                    padding: EdgeInsets.fromLTRB(90.w, 25.h, 90.w, 25.h),
-                    child: Text(
-                      'Get Started',
-                      style: TextStyle(
-                        fontSize: 20.sp,
-                        color: Color.fromRGBO(235, 235, 235, 1),
-                      ),
-                    ),
-                  ),
+                      padding: EdgeInsets.fromLTRB(90.w, 25.h, 90.w, 25.h),
+                      child: Text('Get Started',
+                          style: GoogleFonts.poppins(
+                              fontSize: 20.sp,
+                              color: Color.fromRGBO(235, 235, 235, 1)))),
                 ),
               ),
             ],

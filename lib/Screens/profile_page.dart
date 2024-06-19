@@ -1,7 +1,9 @@
 import 'package:arms/Screens/welcome.dart';
 import 'package:arms/controllers/authentication.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -17,12 +19,11 @@ class _ProfilePageState extends State<ProfilePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'MY ACCOUNT',
-          style: TextStyle(
-            color: Color.fromRGBO(67, 104, 80, 1),
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
+          'MY PROFILE',
+          style: GoogleFonts.poppins(
+              fontSize: 20.sp,
+              fontWeight: FontWeight.bold,
+              color: Color.fromRGBO(67, 104, 80, 1)),
         ),
         centerTitle: true,
         automaticallyImplyLeading: false,
@@ -30,26 +31,22 @@ class _ProfilePageState extends State<ProfilePage> {
       body: Container(
         padding: const EdgeInsets.all(16.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             CircleAvatar(
               radius: 30,
               backgroundColor: Colors.grey[300],
             ),
-            const SizedBox(height: 16.0),
-            Text(
-              'Onam Sarker',
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(height: 8.0),
+            SizedBox(height: 16.h),
+            Text('Onam Sarker',
+                style: GoogleFonts.poppins(
+                    fontSize: 18.sp, fontWeight: FontWeight.bold)),
+            SizedBox(height: 8.h),
             Text(
               '15-05954',
-              style: TextStyle(fontSize: 16),
+              style: GoogleFonts.poppins(fontSize: 16.sp),
             ),
-            const SizedBox(height: 32.0),
+            SizedBox(height: 32.h),
             _buildListTile(
               icon: Icons.person,
               title: 'My Account',
@@ -70,7 +67,7 @@ class _ProfilePageState extends State<ProfilePage> {
               title: 'Contact',
               onTap: () {},
             ),
-            const SizedBox(height: 32.0),
+            SizedBox(height: 250.h),
             Center(
               child: ElevatedButton(
                 onPressed: () {
@@ -87,19 +84,20 @@ class _ProfilePageState extends State<ProfilePage> {
                   );
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.red,
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 40.0,
-                    vertical: 16.0,
-                  ),
-                  textStyle: TextStyle(fontSize: 18),
-                ),
+                    backgroundColor: Colors.red,
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 40.0,
+                      vertical: 16.0,
+                    ),
+                    textStyle: GoogleFonts.poppins(fontSize: 18.sp)),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Icon(Icons.exit_to_app, color: Colors.white),
                     SizedBox(width: 8.0),
-                    Text('Sign Out', style: TextStyle(color: Colors.white)),
+                    Text('Sign Out',
+                        style: GoogleFonts.poppins(
+                            color: const Color.fromRGBO(255, 255, 255, 1))),
                   ],
                 ),
               ),
