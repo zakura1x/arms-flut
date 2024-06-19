@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class ReviewQuestions extends StatefulWidget {
   @override
@@ -67,10 +69,8 @@ class _ReviewQuestionsState extends State<ReviewQuestions> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    _questions[index].question,
-                    style: TextStyle(fontSize: 18),
-                  ),
+                  Text(_questions[index].question,
+                      style: GoogleFonts.poppins(fontSize: 18.sp)),
                   SizedBox(height: 10),
                   Column(
                     children: _questions[index].options.map((option) {

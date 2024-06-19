@@ -1,5 +1,7 @@
 import 'package:arms/Screens/Assessment/assessment_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
 class ScoreDialog extends StatelessWidget {
@@ -18,7 +20,7 @@ class ScoreDialog extends StatelessWidget {
       ),
       title: Center(
           child: Text('Your Score from Test N6',
-              style: TextStyle(fontSize: 16.0))),
+              style: GoogleFonts.poppins(fontSize: 16.sp))),
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -29,10 +31,8 @@ class ScoreDialog extends StatelessWidget {
             percent: percent,
             center: Text(
               '${(percent * 100).toStringAsFixed(0)}%',
-              style: TextStyle(
-                fontSize: 30.0,
-                fontWeight: FontWeight.bold,
-              ),
+              style: GoogleFonts.poppins(
+                  fontSize: 30.sp, fontWeight: FontWeight.bold),
             ),
             footer: Text('Score: $score/$totalItems'),
             circularStrokeCap: CircularStrokeCap.round,
@@ -52,7 +52,8 @@ class ScoreDialog extends StatelessWidget {
                 ),
                 child: Center(
                   child: Text('View Test',
-                      style: TextStyle(color: Color.fromRGBO(67, 104, 80, 1))),
+                      style: GoogleFonts.poppins(
+                          color: Color.fromRGBO(67, 104, 80, 1))),
                 ),
                 onPressed: () {
                   Navigator.push(

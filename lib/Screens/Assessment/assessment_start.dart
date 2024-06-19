@@ -1,5 +1,7 @@
 import 'package:arms/Screens/Assessment/submit_dialog.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class AssessmentStart extends StatefulWidget {
   const AssessmentStart({Key? key}) : super(key: key);
@@ -100,7 +102,8 @@ class _AssessmentStartState extends State<AssessmentStart> {
           children: [
             Text(
               _questions[_currentQuestion - 1].question,
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              style: GoogleFonts.poppins(
+                  fontSize: 18.sp, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 20),
             ..._questions[_currentQuestion - 1].options.map((option) {
@@ -129,10 +132,9 @@ class _AssessmentStartState extends State<AssessmentStart> {
                   minimumSize: Size(170, 100),
                   backgroundColor: Color.fromRGBO(220, 27, 27, 0.69)),
               onPressed: _currentQuestion > 1 ? _previousQuestion : null,
-              child: Text(
-                "Previous",
-                style: TextStyle(color: Colors.white),
-              ),
+              child: Text("Previous",
+                  style: GoogleFonts.poppins(
+                      color: Color.fromRGBO(255, 255, 255, 1))),
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
@@ -148,8 +150,10 @@ class _AssessmentStartState extends State<AssessmentStart> {
                   : null,
               child: Text(
                 "Next",
-                style:
-                    TextStyle(color: Colors.white, fontWeight: FontWeight.w400),
+                style: GoogleFonts.poppins(
+                    fontSize: 20.sp,
+                    fontWeight: FontWeight.w400,
+                    color: Color.fromRGBO(255, 255, 255, 1)),
               ),
             ),
           ],
