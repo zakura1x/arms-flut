@@ -1,6 +1,7 @@
 //import 'package:arms/controllers/navigation_controller.dart';
 import 'package:arms/Screens/TaskList/task_page.dart';
 import 'package:arms/controllers/navigation_controller.dart';
+import 'package:arms/controllers/task_controller.dart';
 import 'package:arms/widgets/custom_card_activity.dart';
 import 'package:arms/widgets/custom_home_card.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +18,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final TaskController taskController = Get.put(TaskController());
+
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(NavigationController());
@@ -181,19 +184,21 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         SizedBox(height: 10.h),
-        Container(
-          height: 230.h,
-          margin: EdgeInsets.symmetric(horizontal: 20.w),
-          child: ListView.builder(
-            itemCount: 3,
-            scrollDirection: Axis.horizontal,
-            itemBuilder: (context, index) {
-              return CustomHomeCard(
-                  title: 'Read Taxation',
-                  content: 'Suggested from your previous test');
-            },
-          ),
-        ),
+        Obx(() {
+          return Container(
+            height: 230.h,
+            margin: EdgeInsets.symmetric(horizontal: 20.w),
+            child: ListView.builder(
+              itemCount: taskController.filteredTasks.length,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) {
+                final task = taskController.filteredTasks[index];
+                return CustomHomeCard(
+                    title: task.title, content: task.description);
+              },
+            ),
+          );
+        }),
         SizedBox(height: 20.h),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w),
