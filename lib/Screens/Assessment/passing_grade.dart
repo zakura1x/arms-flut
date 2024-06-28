@@ -12,7 +12,7 @@ class PassingDialog extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
       ),
       content: Container(
-        height: 520.h,
+        height: 550.h,
         width: 300.w,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -31,7 +31,7 @@ class PassingDialog extends StatelessWidget {
                     fontSize: 16.sp,
                     fontWeight: FontWeight.w300,
                     color: Color.fromRGBO(255, 255, 255, 1))),
-            SizedBox(height: 20),
+            SizedBox(height: 20.h),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 backgroundColor: Color.fromRGBO(224, 224, 224, 1),

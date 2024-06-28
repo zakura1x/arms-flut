@@ -67,7 +67,7 @@ class _ProfilePageState extends State<ProfilePage> {
               title: 'Contact',
               onTap: () {},
             ),
-            SizedBox(height: 250.h),
+            SizedBox(height: 200.h),
             Center(
               child: ElevatedButton(
                 onPressed: () {
